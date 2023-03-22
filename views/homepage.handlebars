@@ -1,25 +1,39 @@
 <!-- Loop over each object in the projects array -->
-{{#each posts as |post| }}
+
 <div class="row mb-4 project">
   <div class="col-md-5">
     <h2>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      {{{get_emoji}}}
-     <a href="/post/{{post.id}}">{{post.post_name}}</a>
+      Homepage
+      
     </h2>
     <p>
       <span for="img" aria-label="money"></span>
       <!-- Pass needed_funding value to the helper function -->
     </p>
-    <p>Created by {{post.user.name}} on {{format_date post.date_created}}
-      <button><a href="/comments">Comment</a></button>
-    </p>
+    <h3>Find your player</h3>
+     <form class="form login-form">
+      <div class="form-group">
+        <label for="email-login">Region:</label>
+        <input class="form-input" type="text" id="email-login" />
+      </div>
+      <div class="form-group">
+        <label for="password-login">Realm:</label>
+        <input class="form-input" type="password" id="password-login" />
+      </div>
+      <div class="form-group">
+        <label for="name-signup">Name:</label>
+        <input class="form-input" type="text" id="name-signup" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">Find</button>
+      </div>
+    </form>
   </div>
   <div class="col-md-7">
     <p>
-      {{post.post_description}}
+      
       </p>
       
   </div>
 </div>
-{{/each}}
+
