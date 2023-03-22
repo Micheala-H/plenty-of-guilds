@@ -1,7 +1,7 @@
-const  = require('');
-const  = require('');
-const  = require(``);
+const User = require('./User');
+// const  = require('');
+// const  = require('')
 
 
 
-module.exports = {   };
+module.exports = { User  };
