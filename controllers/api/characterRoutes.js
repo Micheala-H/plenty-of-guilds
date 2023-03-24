@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Character } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/characters', withAuth, async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
       // Parse from req.body
       const { name, realm, region } = req.body;
@@ -20,7 +20,7 @@ router.post('/characters', withAuth, async (req, res) => {
     }
   });
 
-  router.delete('/characters/:id', async (req, res) => {
+  router.delete('/:id', async (req, res) => {
     try {
       const { id } = req.params;
       const character = await Character.findByPk(id);
