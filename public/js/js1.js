@@ -42,15 +42,15 @@ let textCurrentWeather = function (otherRelm,otherName) {
                     const weatherIcon = data.honorable_kills
                     const todaysDateUnix = data.realm
                     //const todaysDate = dayjs.unix(todaysDateUnix).format('MM/DD/YYYY')
-                     currentCityText.textContent = `Realm:` + todaysDateUnix
- currentTempText.textContent = `Name:` + lat
- currentWindText.textContent = `Race` + lon 
+                     currentCityText.textContent = `Realm: ` + todaysDateUnix
+ currentTempText.textContent = `Name: ` + lat
+ currentWindText.textContent = `Race: ` + lon 
  currentHumidText.textContent = `Active Spec Name:` +cityName
- currentWeatherIcon.textContent = `Active Spec Role:` + cityTempHigh
- currentWeatherImg1.textContent = `Gender:` + cityTempLow
- currentWeatherImg2.textContent = `Faction` + wind
- currentWeatherImg3.textContent = `Achievement Points:` + humid
- currentWeatherImg4.textContent = `Honorable Kills:` + weatherIcon
+ currentWeatherIcon.textContent = `Active Spec Role: ` + cityTempHigh
+ currentWeatherImg1.textContent = `Gender: ` + cityTempLow
+ currentWeatherImg2.textContent = `Faction: ` + wind
+ currentWeatherImg3.textContent = `Achievement Points: ` + humid
+ currentWeatherImg4.textContent = `Honorable Kills: ` + weatherIcon
                     //let cityType = cityName
                     //ctyBtn.push(cityType)
                    // localStorage.setItem("city", JSON.stringify(ctyBtn))
