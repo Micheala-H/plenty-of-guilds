@@ -1,61 +1,54 @@
-let relm = document.querySelector(`#relm-choice`)
-let name = document.querySelector(`#name-choice`)
-let userFormEl = document.querySelector('#character-form');
-let weatherurl = `https://raider.io/api/v1/characters/profile?region=us`
-let currentCityText = document.querySelector('.lat-name')
-let currentTempText = document.querySelector('.lon-race')
-let currentWindText = document.querySelector('.active-spec-name')
-let currentHumidText = document.querySelector('.active-spec-role')
-let currentWeatherIcon = document.querySelector('.gender')
-let currentWeatherImg1 = document.querySelector(`.faction`)
-let currentWeatherImg2 = document.querySelector(`.a-points`)
-let currentWeatherImg3 = document.querySelector(`.kills`)
-let currentWeatherImg4 = document.querySelector(`.relm`)
+let realmChoiceEl = document.querySelector(`.realm-choice`)
+let nameChoiceEl = document.querySelector(`.name-choice`)
+let characterFormEl = document.querySelector('.character-form');
+let raiderUrl = `https://raider.io/api/v1/characters/profile?region=us`
+let characterNameEl = document.querySelector('.character-name')
+let realmEl = document.querySelector(`.realm`)
+let characterRaceEl = document.querySelector('.race')
+let specNameEl = document.querySelector('.active-spec-name')
+let specRoleEl = document.querySelector('.active-spec-role')
+let genderEl = document.querySelector('.gender')
+let factionEl = document.querySelector(`.faction`)
+let pointsEl = document.querySelector(`.a-points`)
+let killsEl = document.querySelector(`.kills`)
+
 
 let ctyBtn = []
 
 
-const newCityWeather = function (event) {
+const newCharacter = function (event) {
     event.preventDefault();
-    let otherRelm = relm.value.trim();
-    let otherName = name.value.trim();
-console.log(otherName);
-console.log(otherRelm);
-    if (otherRelm && otherName !== "") {
-        textCurrentWeather(otherRelm,otherName)
+    let otherRealm = realmChoiceEl.value.trim();
+    let otherName = nameChoiceEl.value.trim();
+    if (otherRealm && otherName !== "") {
+        findCharacter(otherRealm, otherName)
     } else {
-        window.alert("please enter a valid city");
+        console.alert("please enter a valid realm.");
     }
 }
-let textCurrentWeather = function (otherRelm,otherName) {
-    fetch(`https://raider.io/api/v1/characters/profile?region=us&realm=` + otherRelm + `&name=` + otherName)
+let findCharacter = function (otherRealm ,otherName) {
+    fetch(`https://raider.io/api/v1/characters/profile?region=us&realm=` + otherRealm + `&name=` + otherName)
         .then(function (response) {
             if (response.ok) {
                 response.json().then(function (data) {
-                    const lat = data.name
-                    const lon = data.race
-                    const cityName = data.active_spec_name
-                    const cityTempHigh = data.active_spec_role
-                    const cityTempLow = data.gender
-                    const wind = data.faction
-                    const humid = data.achievement_points
-                    const weatherIcon = data.honorable_kills
-                    const todaysDateUnix = data.realm
-                    //const todaysDate = dayjs.unix(todaysDateUnix).format('MM/DD/YYYY')
-                     currentCityText.textContent = `Realm: ` + todaysDateUnix
- currentTempText.textContent = `Name: ` + lat
- currentWindText.textContent = `Race: ` + lon 
- currentHumidText.textContent = `Active Spec Name:` +cityName
- currentWeatherIcon.textContent = `Active Spec Role: ` + cityTempHigh
- currentWeatherImg1.textContent = `Gender: ` + cityTempLow
- currentWeatherImg2.textContent = `Faction: ` + wind
- currentWeatherImg3.textContent = `Achievement Points: ` + humid
- currentWeatherImg4.textContent = `Honorable Kills: ` + weatherIcon
-                    //let cityType = cityName
-                    //ctyBtn.push(cityType)
-                   // localStorage.setItem("city", JSON.stringify(ctyBtn))
-                   // makeBtn()
-                    //getFiveDayForcast(lat, lon)
+                    const name = data.name
+                    const race = data.race
+                    const specName = data.active_spec_name
+                    const specRole = data.active_spec_role
+                    const gender = data.gender
+                    const faction = data.faction
+                    const achievementPoints = data.achievement_points
+                    const honorableKills = data.honorable_kills
+                    const realm = data.realm
+ characterNameEl.textContent = `Realm: ` + realm
+ characterRaceEl.textContent = `Name: ` + name
+ specNameEl.textContent = `Race: ` + race 
+ specRoleEl.textContent = `Active Spec Name:` +specName
+ genderEl.textContent = `Active Spec Role: ` + specRole
+ factionEl.textContent = `Gender: ` + gender
+ pointsEl.textContent = `Faction: ` + faction
+ killsEl.textContent = `Achievement Points: ` + achievementPoints
+ realmEl.textContent = `Honorable Kills: ` + honorableKills
                 });
             }
         })
@@ -63,15 +56,15 @@ let textCurrentWeather = function (otherRelm,otherName) {
 let sendCharacter = async (event) => {
     console.log(event);
     event.preventDefault();
-    const name = document.querySelector('#lat-name').value.trim();
-    const race = document.querySelector('#lon-race').value.trim();
-    const aSpecName = document.querySelector('#active-spec-name').value.trim();
-    const aSpecRole = document.querySelector('#active-spec-role').value.trim();
-    const gender = document.querySelector('#gender').value.trim();
-    const faction = document.querySelector('#faction').value.trim();
-    const aPoints = document.querySelector('#a-points').value.trim();
-    const kills = document.querySelector('#kills').value.trim();
-    const realm = document.querySelector('#relm').value.trim();
+    const name = document.querySelector('.character-name').value.trim();
+    const race = document.querySelector('.race').value.trim();
+    const aSpecName = document.querySelector('.active-spec-name').value.trim();
+    const aSpecRole = document.querySelector('.active-spec-role').value.trim();
+    const gender = document.querySelector('.gender').value.trim();
+    const faction = document.querySelector('.faction').value.trim();
+    const aPoints = document.querySelector('.a-points').value.trim();
+    const kills = document.querySelector('.kills').value.trim();
+    const realm = document.querySelector('.realm').value.trim();
 
     const response = await fetch(`api/characters`, {
         method: `POST`,
@@ -85,4 +78,4 @@ let sendCharacter = async (event) => {
       alert(response.statusText);
     }
 }
-userFormEl.addEventListener('submit', newCityWeather);
+characterFormEl.addEventListener('submit', findCharacter);
