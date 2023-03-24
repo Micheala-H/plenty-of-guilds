@@ -18,19 +18,40 @@ Character.init(
         isAlpha: true
       }
     },
-    region: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        isAlpha: true
-      }
-    },
     realm: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         isAlpha: true
       }
+    },
+    race: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    spec: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    role: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    gender: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    faction: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    points: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    kills: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     },
     user_id: {
       type: DataTypes.INTEGER,

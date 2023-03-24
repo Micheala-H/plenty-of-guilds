@@ -4,14 +4,20 @@ const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
   try {
-    const { name, region, realm } = req.body;
+    const { name, realm, race, spec, role, gender, faction, points, kills } = req.body;
     const characterToCreate = await Character.create({
       name,
-      region,
       realm,
+      race,
+      spec,
+      role,
+      gender,
+      faction,
+      points,
+      kills,
       user_id: req.session.user_id,
     });
-    res.json();
+    res.json(characterToCreate);
   } catch (err) {
     console.error(err);
     res.status(500).json('Something went wrong here.');
