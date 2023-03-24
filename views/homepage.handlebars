@@ -38,7 +38,11 @@
     <li class="a-points"></li>
     <li class="kills"></li>
    </ul>
-   <button>SAVE</button>
+   {{#if logged_in}}
+   <button class="save-character">SAVE</button>
+   {{else}}
+   <h2>Log in or sign up to save characters</h2>
+   {{/if}}
       <script src="../js/js1.js"></script>
   </div>
 </div>
