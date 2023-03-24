@@ -11,18 +11,15 @@
       <!-- Pass needed_funding value to the helper function -->
     </p>
     <h3>Find your player</h3>
-     <form class="form login-form">
+     <form class="form character-form" id="character-form">
       <div class="form-group">
-        <label for="email-login">Region:</label>
-        <input class="form-input" type="text" id="email-login" />
-      </div>
       <div class="form-group">
         <label for="password-login">Realm:</label>
-        <input class="form-input" type="password" id="password-login" />
+        <input class="form-input" type="text" id="relm-choice" />
       </div>
       <div class="form-group">
         <label for="name-signup">Name:</label>
-        <input class="form-input" type="text" id="name-signup" />
+        <input class="form-input" type="text" id="name-choice" />
       </div>
       <div class="form-group">
         <button class="btn btn-primary" type="submit">Find</button>
@@ -30,10 +27,18 @@
     </form>
   </div>
   <div class="col-md-7">
-    <p>
-      
-      </p>
-      
+   <ul>
+    <li class="lat-name"></li>
+    <li class="lon-race"></li>
+    <li class="active-spec-name"></li>
+    <li class="active-spec-role"></li>
+    <li class="gender"></li>
+    <li class="faction"></li>
+    <li class="a-points"></li>
+    <li class="kills"></li>
+    <li class="relm"></li>
+   </ul>
+      <script src="../js/js1.js"></script>
   </div>
 </div>
 
