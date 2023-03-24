@@ -33,7 +33,7 @@ Character.init(
       }
     },
     user_id: {
-      tpye: DataTypes.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
           model: 'user',
