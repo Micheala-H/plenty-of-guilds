@@ -60,4 +60,29 @@ let textCurrentWeather = function (otherRelm,otherName) {
             }
         })
 }
+let sendCharacter = async (event) => {
+    console.log(event);
+    event.preventDefault();
+    const name = document.querySelector('#lat-name').value.trim();
+    const race = document.querySelector('#lon-race').value.trim();
+    const aSpecName = document.querySelector('#active-spec-name').value.trim();
+    const aSpecRole = document.querySelector('#active-spec-role').value.trim();
+    const gender = document.querySelector('#gender').value.trim();
+    const faction = document.querySelector('#faction').value.trim();
+    const aPoints = document.querySelector('#a-points').value.trim();
+    const kills = document.querySelector('#kills').value.trim();
+    const realm = document.querySelector('#relm').value.trim();
+
+    const response = await fetch(`api/characters`, {
+        method: `POST`,
+        body: JSON.stringify({name,race,aSpecName,aSpecRole,gender,faction,aPoints,kills,realm}),
+        headers: { 'Content-Type': 'application/json' },
+    });
+     if (response.ok) {
+      // If successful, redirect the browser to the profile page
+      document.location.replace('/homepage');
+    } else {
+      alert(response.statusText);
+    }
+}
 userFormEl.addEventListener('submit', newCityWeather);
