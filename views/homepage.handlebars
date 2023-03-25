@@ -28,18 +28,27 @@
   </div>
   <div class="col-md-7">
    <ul>
-    <li class="realm"></li>
-    <li class="character-name"></li>
-    <li class="race"></li>
-    <li class="active-spec-name"></li>
-    <li class="active-spec-role"></li>
-    <li class="gender"></li>
-    <li class="faction"></li>
-    <li class="a-points"></li>
-    <li class="kills"></li>
+    <li>Realm: <span class="realm"></span></li>
+    <li>Name: <span class="character-name"></span></li>
+    <li>Race: <span class="race"></span></li>
+    <li>Active Spec Name: <span class="active-spec-name"></span></li>
+    <li>Active Spec Role <span class="active-spec-role"></span></li>
+    <li>Gender: <span class="gender"></span></li>
+    <li>Faction: <span class="faction"></span></li>
+    <li>Points: <span class="a-points"></span></li>
+    <li>Kills: <span class="kills"></span></li>
    </ul>
-   <button>SAVE</button>
-      <script src="../js/js1.js"></script>
+  
+   {{#if logged_in}}
+   <div class="save-character" >
+   <button id="save-character" type="submit">SAVE</button>
+   {{else}}
+   <button hidden id="save-character" type="submit">SAVE</button>
+   <h2>Log in or sign up to save characters</h2>
+    </div>
+   {{/if}}
   </div>
 </div>
+<script src="../js/js1.js"></script>
+
 
