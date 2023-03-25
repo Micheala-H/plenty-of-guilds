@@ -1,18 +1,18 @@
 <!-- Loop over each object in the projects array -->
 
-<div class="project grid grid-cols-3 gap-4 bg-slate-500">
-  <div class="col-span-1">
+<div class="project grid grid-cols-1 md:grid-cols-3 md:gap-4 bg-slate-500">
+  <div class="col-span-1 px-4">
     <!-- Pass needed_funding value to the helper function -->
     <p><span for="img" aria-label="money"></span></p>
     <h3 class="text-center m-4">Find your player</h3>
     <form class="form character-form grid grid-rows-3 gap-4" id="character-form">
       
      {{!-- <div class="form-group"> --}}
-      <div class="form-group row-span-1 grid grid-cols-3 ml-4">
+      <div class="form-group row-span-1 grid grid-cols-3">
         <label for="password-login">Realm:</label>
         <input class="form-input col-span-2" type="text" id="realm-choice" />
       </div>
-      <div class="form-group row-span-1 grid grid-cols-3 ml-4">
+      <div class="form-group row-span-1 grid grid-cols-3">
         <label for="name-signup">Name:</label>
         <input class="form-input col-span-2" type="text" id="name-choice" />
       </div>
@@ -24,10 +24,10 @@
 
   <div class="col-span-2">
    <ul class="grid grid-cols-2">
-    <li>Realm: <span class="realm"></span></li>
     <li>Name: <span class="character-name"></span></li>
-    <li>Race: <span class="race"></span></li>
     <li>Active Spec Name: <span class="active-spec-name"></span></li>
+    <li>Realm: <span class="realm"></span></li>
+    <li>Race: <span class="race"></span></li>
     <li>Active Spec Role <span class="active-spec-role"></span></li>
     <li>Gender: <span class="gender"></span></li>
     <li>Faction: <span class="faction"></span></li>
