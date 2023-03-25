@@ -1,7 +1,7 @@
 {
   "name": "new_db",
   "version": "1.0.0",
-  "description": "",
+  "description": "![badge](https://img.shields.io/badge/license-MIT-important)",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -15,7 +15,7 @@
     "bcrypt": "^5.0.0",
     "connect-session-sequelize": "^7.0.4",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "express-handlebars": "^5.2.0",
     "express-session": "^1.17.1",
     "handlebars": "^4.7.7",
