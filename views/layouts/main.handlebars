@@ -5,18 +5,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Plenty Of Guilds</title>
-  <link rel="stylesheet" href="/css/jass.css">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/output.css">
 </head>
 
+
+
 <body>
-  <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>
+  <div class="container mx-auto">
+    <header class="flex flex-end py-4 bg-slate-700">
+      <h1 class="flex-auto">
         <span role="img" aria-label="money">💸</span>
-        <a href="/">Plenty Of Guilds</a>
+        <a href="/" class="text-5xl font-bold text-zinc-50">Plenty Of Guilds</a>
       </h1>
-      <nav>
+      <nav class="flex px-4 items-center">
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
         <a href="/profile">profile</a> |
@@ -24,12 +25,14 @@
         <button><a href="/">Home</a></button>
         <button><a href="/profile">Dashoard</a></button>
         {{else}}
-        <a href="/login">login</a>
+        <div class="">
+          <a href="/login" class="text-zinc-50">login</a>
+        </div>
         {{/if}}
         
       </nav>
     </header>
-    <main class="container container-fluid mt-5">
+    <main class="">
       <!-- Render the sub layout -->
       {{{ body }}}
     </main>
