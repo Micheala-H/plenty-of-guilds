@@ -2,12 +2,27 @@ const router = require('express').Router();
 const { User, Character } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+router.get('/', withAuth, async (req, res) => {
+  try {
+    const characters = await Character.findAll({
+      where: {
+        user_id: req.session.user_id
+      }
+    });
+    res.json(characters);
+    console.log("okayyyyyyyy")
+  } catch (err) {
+    console.error(err);
+    res.status(500).json('Something went wrong here.');
+  }
+});
+
 router.post('/', withAuth, async (req, res) => {
   try {
     const { name, realm, race, spec, role, gender, faction, points, kills } = req.body;
+    console.log(req.body)
     const characterToCreate = await Character.create({
       name,
-      realm,
       race,
       spec,
       role,
@@ -15,7 +30,8 @@ router.post('/', withAuth, async (req, res) => {
       faction,
       points,
       kills,
-      user_id: req.session.user_id,
+      realm,
+      user_id: req.session.user_id
     });
     res.json(characterToCreate);
   } catch (err) {
