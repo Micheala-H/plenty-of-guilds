@@ -1,7 +1,22 @@
 const router = require('express').Router();
 const { User, Character } = require('../../models');
 const withAuth = require('../../utils/auth');
-
+//find a single character saved by player
+router.get('/', withAuth, async (req, res) => {
+  try {
+    const characters = await Character.findbyPk({
+      where: {
+        user_id: req.session.user_id
+      }
+    });
+    res.json(characters);
+    console.log("okayyyyyyyy")
+  } catch (err) {
+    console.error(err);
+    res.status(500).json('Something went wrong here.');
+  }
+});
+//find all characters saved by player
 router.get('/', withAuth, async (req, res) => {
   try {
     const characters = await Character.findAll({
@@ -16,7 +31,7 @@ router.get('/', withAuth, async (req, res) => {
     res.status(500).json('Something went wrong here.');
   }
 });
-
+//saves character to database
 router.post('/', withAuth, async (req, res) => {
   try {
     const { name, realm, race, spec, role, gender, faction, points, kills } = req.body;
