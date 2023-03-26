@@ -18,7 +18,6 @@ router.get('/:id', withAuth, async (req, res) => {
       res.status(500).json('Something went wrong here.');
     }
   });
-  //find all reviews saved by player
   router.get('/', withAuth, async (req, res) => {
     try {
       const allReviews = await Review.findAll({
@@ -33,9 +32,7 @@ router.get('/:id', withAuth, async (req, res) => {
       res.status(500).json('Something went wrong here.');
     }
   });
-  //saves character to database
   router.post('/', withAuth, async (req, res) => {
-    
     try {
         const character = await Character.findOne({
             where: {
@@ -56,10 +53,11 @@ router.get('/:id', withAuth, async (req, res) => {
           return res.json("Something went wrong here");
         }
       });
+
     router.delete('/:id', async (req, res) => {
       try {
         const { id } = req.params;
-        const reviewToDelete = await Character.findByPk(id);
+        const reviewToDelete = await Review.findByPk(id);
         if (!reviewToDelete) {
           return res.status(404).json('Character not found');
         }
@@ -70,8 +68,5 @@ router.get('/:id', withAuth, async (req, res) => {
         res.status(500).json('Something went wrong here.');
       }
     });
-
-
-
 
 module.exports = router;
