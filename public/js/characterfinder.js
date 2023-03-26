@@ -59,29 +59,64 @@ let findCharacter = function (otherRealm, otherName) {
             }
         })
 }
-const sendCharacter = async (event) => {
+const saveCharacter = function (event) {
     event.preventDefault();
-    const name = characterNameEl.textContent
-    const race = characterRaceEl.textContent
-    const spec = specNameEl.textContent
-    const role = specRoleEl.textContent
-    const gender = genderEl.textContent
-    const faction = factionEl.textContent
-    const points = pointsEl.textContent
-    const kills = killsEl.textContent
-    const realm = realmEl.textContent
-
-    const response = await fetch(`api/characters`, {
-        method: `POST`,
-        body: JSON.stringify({ name, race, spec, role, gender, faction, points, kills, realm }),
-        headers: { 'Content-Type': 'application/json' },
-    });
-    if (response.ok) {
-        // If successful, redirect the browser to the profile page
-        document.location.replace('/');
+    let otherRealm = realmChoiceEl.value.trim();
+    let otherName = nameChoiceEl.value.trim();
+    console.log(otherRealm);
+    console.log(otherName);
+    if (otherRealm && otherName !== "") {
+        sendCharacter(otherRealm, otherName)
     } else {
-        alert(response.statusText);
+        window.alert("please enter a valid realm.");
     }
 }
+let sendCharacter = function (otherRealm, otherName) {
+    fetch(`https://raider.io/api/v1/characters/profile?region=us&realm=` + otherRealm + `&name=` + otherName)
+        .then(function (response) {
+        if (response.ok) {
+            response.json().then(function (data) {
+                const name = data.name
+                const race = data.race
+                const specName = data.active_spec_name
+                const specRole = data.active_spec_role
+                const gender = data.gender
+                const faction = data.faction
+                const achievementPoints = data.achievement_points
+                const honorableKills = data.honorable_kills
+                const realm = data.realm
+                const characterData = {
+                    name: name,
+                    realm: realm,
+                    race: race,
+                    spec: specName,
+                    role: specRole,
+                    gender: gender,
+                    faction: faction,
+                    points: achievementPoints,
+                    kills: honorableKills
+                }
+                //console.log(JSON.stringify(characterData))
+                    fetch('/api/characters', {
+                        method: 'POST',
+                        headers: {
+                        'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(characterData)
+                })
+                    .then(function(response) {
+                        if (response.ok) {
+                            console.log("Working")
+                        } else {
+                            console.log("not working")
+                        }
+                })
+                    .catch(function(error) {
+                        console.error(error);
+                });
+            });
+        }
+    })
+}
 characterFormEl.addEventListener('submit', newCharacter);
-saveBtnEl.addEventListener('click', sendCharacter);
+saveBtnEl.addEventListener('click', saveCharacter);
