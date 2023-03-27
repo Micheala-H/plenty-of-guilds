@@ -13,8 +13,6 @@ let pointsEl = document.querySelector(`.a-points`)
 let killsEl = document.querySelector(`.kills`)
 let saveBtnEl = document.querySelector(`#save-character`)
 
-
-
 let ctyBtn = []
 
 
