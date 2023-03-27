@@ -25,14 +25,15 @@ router.get('/profile', withAuth, async (req, res) => {
       // Find the logged in user based on the session ID
       const userData = await User.findByPk(req.session.user_id, {
         attributes: { exclude: ['password'] },
-        include: [{ model: Character }, { model: Review }]
+        include: { model: Character }
       });
       const user = userData.get({ plain: true });
 
       const characterData = await Character.findAll({
         where: {
             user_id: req.session.user_id
-        }
+        },
+        include: { model: Review }
       });
       const characters = characterData.map((character) => character.get({ plain: true }))
   
@@ -44,6 +45,23 @@ router.get('/profile', withAuth, async (req, res) => {
       const reviews = reviewData.map((review) => review.get({ plain: true }))
       res.render('profile', {
         ...user,
+        ...characters,
+        ...reviews,
+        logged_in: true
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
+  router.get('/dashboard', withAuth, async (req, res) => {
+    try {
+      const characterData = Character.findAll(); 
+      const characters = characterData.map((character) => character.get({ plain: true }))
+  
+      const reviewData = Review.findAll();
+      const reviews = reviewData.map((review) => review.get({ plain: true }))
+      res.render('dashboard', {
         characters,
         reviews,
         logged_in: true
