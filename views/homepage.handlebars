@@ -6,41 +6,40 @@
     <p><span for="img" aria-label="money"></span></p>
     <h3 class="text-center m-4">Find your player</h3>
     <form class="form character-form grid grid-rows-3 gap-4" id="character-form">
-      
-     {{!-- <div class="form-group"> --}}
-      <div class="form-group row-span-1 grid grid-cols-3">
-        <label for="password-login">Realm:</label>
-        <input class="form-input col-span-2" type="text" id="realm-choice" />
-      </div>
-      <div class="form-group row-span-1 grid grid-cols-3">
-        <label for="name-signup">Name:</label>
-        <input class="form-input col-span-2" type="text" id="name-choice" />
-      </div>
-      <div class="form-group row-span-1 text-center">
-        <button class="" type="submit">Find</button>
-      </div>
+
+      {{!-- <div class="form-group"> --}}
+        <div class="form-group row-span-1 grid grid-cols-3">
+          <label for="password-login">Realm:</label>
+          <input class="form-input col-span-2" type="text" id="realm-choice" />
+        </div>
+        <div class="form-group row-span-1 grid grid-cols-3">
+          <label for="name-signup">Name:</label>
+          <input class="form-input col-span-2" type="text" id="name-choice" />
+        </div>
+        <div class="form-group row-span-1 text-center">
+          <button class="" type="submit">Find</button>
+        </div>
     </form>
   </div>
 
   <div class="col-span-2">
-   <ul class="grid grid-cols-2">
-    <li>Name: <span class="character-name"></span></li>
-    <li>Active Spec Name: <span class="active-spec-name"></span></li>
-    <li>Realm: <span class="realm"></span></li>
-    <li>Race: <span class="race"></span></li>
-    <li>Active Spec Role <span class="active-spec-role"></span></li>
-    <li>Gender: <span class="gender"></span></li>
-    <li>Faction: <span class="faction"></span></li>
-    <li>Points: <span class="a-points"></span></li>
-    <li>Kills: <span class="kills"></span></li>
-   </ul>
-  <img id="thumb-pic1" src="" alt="">
-  <img id="thumb-pic2" src="" alt="">
-  <img id="thumb-pic3" src="" alt="">
-  <img id="thumb-pic4" src="" alt="">
-   <div class="grid-span-2 text-center">
+    <ul class="grid grid-cols-2">
+      <li>Name: <span class="character-name"></span></li>
+      <li>Active Spec Name: <span class="active-spec-name"></span></li>
+      <li>Realm: <span class="realm"></span></li>
+      <li>Race: <span class="race"></span></li>
+      <li>Active Spec Role <span class="active-spec-role"></span></li>
+      <li>Gender: <span class="gender"></span></li>
+      <li>Faction: <span class="faction"></span></li>
+      <li>Points: <span class="a-points"></span></li>
+      <li>Kills: <span class="kills"></span></li>
+    </ul>
+   
+    <img id="thumb-pic1" src="" alt="">
+  
+    <div class="grid-span-2 text-center">
       {{#if logged_in}}
-      <div class="save-character" >
+      <div class="save-character">
         <button id="save-character" type="submit">SAVE</button>
       </div>
       {{else}}
@@ -49,10 +48,8 @@
         <h2>Log in or sign up to save characters</h2>
       </div>
       {{/if}}
-   </div>
+    </div>
 
   </div>
 </div>
 <script src="../js/characterfinder.js"></script>
-
-

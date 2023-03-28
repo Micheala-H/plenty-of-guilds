@@ -122,11 +122,9 @@ let sendCharacter = function (otherRealm, otherName) {
         }
     })
 }
-function warhol(pic) {
-    pic1.src = pic
-    pic2.src = pic
-    pic3.src = pic
-    pic4.src = pic
+ function warhol(pic) {
+ pic1.src = pic
+   
 }
 characterFormEl.addEventListener('submit', newCharacter);
 saveBtnEl.addEventListener('click', saveCharacter);
