@@ -1,0 +1,27 @@
+<div class="card">
+  <div class="card-header">
+    <h3>{{ name }}</h3>
+    <p>Realm: {{ realm }}</p>
+  </div>
+  <div class="card-body">
+    <p>Race: {{ race }}</p>
+    <p>Spec: {{ spec }}</p>
+    <p>Role: {{ role }}</p>
+    <p>Gender: {{ gender }}</p>
+    <p>Faction: {{ faction }}</p>
+    <p>Points: {{ points }}</p>
+    <p>Kills: {{ kills }}</p>
+      {{#if review}}
+      <div class="review">
+        <h2>Review</h2>
+        <p>Rating: {{ review.rating }}</p>
+        <p>Comment: {{ review.comment }}</p>
+      </div>
+    {{else}}
+      <div class="review">
+        <h1>Review</h2>
+        <a href="/character/{{id}}">Click here to leave a review.</a>
+      </div>
+    {{/if}}
+  </div>
+</div>
