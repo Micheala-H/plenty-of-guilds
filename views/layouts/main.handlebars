@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Plenty Of Guilds</title>
   <link rel="stylesheet" href="/css/output.css">
+  <!--<link href="https://unpkg.com/pattern.css" rel="stylesheet">-->
 </head>
 
 
@@ -14,8 +15,8 @@
   <div class="container mx-auto">
     <header class="flex flex-end py-4 bg-slate-700">
       <h1 class="flex-auto">
-        <span role="img" aria-label="money">💸</span>
-        <a href="/" class="text-5xl font-bold text-zinc-50">Plenty Of Guilds</a>
+        <span role="img" aria-label="money"></span>
+        <a href="/" class="text-5xl font-bold text-amber-600 center">Plenty Of Guilds</a>
       </h1>
       <nav class="flex px-4 items-center">
         <!-- Conditionally render login or logout links -->
@@ -26,7 +27,7 @@
         <button><a href="/profile">Dashoard</a></button>
         {{else}}
         <div class="">
-          <a href="/login" class="text-zinc-50">login</a>
+          <a href="/login" class="font-bold text-xl text-zinc-50 bg-amber-600 p-2 rounded">Login</a>
         </div>
         {{/if}}
         
