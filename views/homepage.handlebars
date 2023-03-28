@@ -1,43 +1,44 @@
 <!-- Loop over each object in the projects array -->
 
-<div class="project grid grid-cols-1 md:grid-cols-3 md:gap-4 bg-slate-500">
-  <div class="col-span-1 px-4">
+<div class="project grid grid-cols-1 md:grid-cols-3 md:gap-4 ">
+  <div class="col-span-1 px-4 border-4 bg-slate-600">
     <!-- Pass needed_funding value to the helper function -->
     <p><span for="img" aria-label="money"></span></p>
-    <h3 class="text-center m-4">Find your player</h3>
-    <form class="form character-form grid grid-rows-3 gap-4" id="character-form">
-
-      {{!-- <div class="form-group"> --}}
-        <div class="form-group row-span-1 grid grid-cols-3">
-          <label for="password-login">Realm:</label>
-          <input class="form-input col-span-2" type="text" id="realm-choice" />
-        </div>
-        <div class="form-group row-span-1 grid grid-cols-3">
-          <label for="name-signup">Name:</label>
-          <input class="form-input col-span-2" type="text" id="name-choice" />
-        </div>
-        <div class="form-group row-span-1 text-center">
-          <button class="" type="submit">Find</button>
-        </div>
+    <h3 class="text-center text-zinc-50 text-xl font-bold m-4">Find your player</h3>
+    <form class="form character-form grid grid-rows-3 gap-4  mb-4" id="character-form">
+      
+     {{!-- <div class="form-group"> --}}
+      <div class="form-group row-span-1 grid grid-cols-3 text-zinc-50">
+        <label for="password-login font-xl">Realm:</label>
+        <input class="form-input col-span-2 text-slate-800 font-bold text-xl text-center" type="text" id="realm-choice" />
+      </div>
+      <div class="form-group row-span-1 grid grid-cols-3 text-zinc-50">
+        <label for="name-signup font-xl">Name:</label>
+        <input class="form-input col-span-2 text-slate-800 font-bold text-xl text-center" type="text" id="name-choice" />
+      </div>
+      <div class="form-group row-span-1 text-center">
+        <button class="font-bold text-xl text-zinc-50 bg-amber-600 p-2 rounded" type="submit">Find</button>
+      </div>
     </form>
   </div>
 
-  <div class="col-span-2">
-    <ul class="grid grid-cols-2">
-      <li>Name: <span class="character-name"></span></li>
-      <li>Active Spec Name: <span class="active-spec-name"></span></li>
-      <li>Realm: <span class="realm"></span></li>
-      <li>Race: <span class="race"></span></li>
-      <li>Active Spec Role <span class="active-spec-role"></span></li>
-      <li>Gender: <span class="gender"></span></li>
-      <li>Faction: <span class="faction"></span></li>
-      <li>Points: <span class="a-points"></span></li>
-      <li>Kills: <span class="kills"></span></li>
-    </ul>
-   
-    <img id="thumb-pic1" src="" alt="">
-  
-    <div class="grid-span-2 text-center">
+  <div class="col-span-2 border-4 p-2 bg-slate-600 ">
+   <ul class="grid grid-cols-2 text-lg text-zinc-50">
+    <li class="font-bold">Name: <span class="character-name font-normal"></span></li>
+    <li class="font-bold">Active Spec: <span class="active-spec-name font-normal"></span></li>
+    <li class="font-bold">Realm: <span class="realm font-normal"></span></li>
+    <li class="font-bold">Race: <span class="race font-normal"></span></li>
+    <li class="font-bold">Role: <span class="active-spec-role font-normal"></span></li>
+    <li class="font-bold">Gender: <span class="gender font-normal"></span></li>
+    <li class="font-bold">Faction: <span class="faction font-normal"></span></li>
+    <li class="font-bold">Points: <span class="a-points font-normal"></span></li>
+    <li class="font-bold">Kills: <span class="kills font-normal"></span></li>
+   </ul>
+  <img id="thumb-pic1" src="" alt="">
+  <img id="thumb-pic2" src="" alt="">
+  <img id="thumb-pic3" src="" alt="">
+  <img id="thumb-pic4" src="" alt="">
+   <div class="grid-span-2 text-center">
       {{#if logged_in}}
       <div class="save-character">
         <button id="save-character" type="submit">SAVE</button>
@@ -45,7 +46,7 @@
       {{else}}
       <div>
         <button hidden id="save-character" type="submit">SAVE</button>
-        <h2>Log in or sign up to save characters</h2>
+        <h2 class="text-zinc-50 text-xl"><a href="/login" class="font-bold">Log in</a> or <a href="/login" class="font-bold">Sign up</a> to save characters</h2>
       </div>
       {{/if}}
     </div>

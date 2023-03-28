@@ -20,9 +20,25 @@ router.get('/login', (req, res) => {
 
   res.render('login');
 });
+
+router.get('/character/:id', async (req, res) => {
+  try {
+    const characterData = await Character.findByPk(req.params.id)
+
+    const character = characterData.get({ plain: true });
+
+    res.render('character', {
+      ...character,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
 router.get('/profile', withAuth, async (req, res) => {
     try {
-      // Find the logged in user based on the session ID
       const userData = await User.findByPk(req.session.user_id, {
         attributes: { exclude: ['password'] },
         include: { model: Character }
@@ -54,16 +70,17 @@ router.get('/profile', withAuth, async (req, res) => {
     }
   });
 
-  router.get('/dashboard', withAuth, async (req, res) => {
+  router.get('/dashboard', async (req, res) => {
     try {
-      const characterData = Character.findAll(); 
+      const characterData = Character.findAll({
+      include: { model: Review }})
       const characters = characterData.map((character) => character.get({ plain: true }))
   
       const reviewData = Review.findAll();
       const reviews = reviewData.map((review) => review.get({ plain: true }))
       res.render('dashboard', {
-        characters,
-        reviews,
+        ...characters,
+        ...reviews,
         logged_in: true
       });
     } catch (err) {

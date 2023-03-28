@@ -3,12 +3,9 @@ const { Character, Review } = require('../../models');
 const withAuth = require('../../utils/auth');
       router.post('/', withAuth, async (req, res) => {
         try {
-
-          
           const reviewToCreate = await Review.create({
             ...req.body,
             user_id: req.session.user_id
-          
           })
           res.json(reviewToCreate);
         } catch (err) {
