@@ -12,8 +12,10 @@ let factionEl = document.querySelector(`.faction`)
 let pointsEl = document.querySelector(`.a-points`)
 let killsEl = document.querySelector(`.kills`)
 let saveBtnEl = document.querySelector(`#save-character`)
-
-
+let pic1 = document.querySelector(`#thumb-pic1`)
+let pic2 = document.querySelector(`#thumb-pic2`)
+let pic3 = document.querySelector(`#thumb-pic3`)
+let pic4 = document.querySelector(`#thumb-pic4`)
 
 let ctyBtn = []
 
@@ -46,6 +48,7 @@ let findCharacter = function (otherRealm, otherName) {
                     const achievementPoints = data.achievement_points
                     const honorableKills = data.honorable_kills
                     const realm = data.realm
+                    const pic = data.thumbnail_url
                     realmEl.textContent = realm
                     characterNameEl.textContent = name
                     characterRaceEl.textContent = race
@@ -55,6 +58,7 @@ let findCharacter = function (otherRealm, otherName) {
                     factionEl.textContent = faction
                     pointsEl.textContent = achievementPoints
                     killsEl.textContent = honorableKills
+                    warhol(pic)
                 });
             }
         })
@@ -117,6 +121,12 @@ let sendCharacter = function (otherRealm, otherName) {
             });
         }
     })
+}
+function warhol(pic) {
+    pic1.src = pic
+    pic2.src = pic
+    pic3.src = pic
+    pic4.src = pic
 }
 characterFormEl.addEventListener('submit', newCharacter);
 saveBtnEl.addEventListener('click', saveCharacter);

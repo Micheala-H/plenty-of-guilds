@@ -14,9 +14,6 @@ Review.init(
     rating: {
       type: DataTypes.DECIMAL,
       defaultValue: null,
-      validate: {
-        isNumeric: true
-      }
     },
     comment: {
       type: DataTypes.TEXT,
