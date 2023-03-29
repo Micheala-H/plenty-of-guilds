@@ -1,6 +1,6 @@
 let realmChoiceEl = document.querySelector(`#realm-choice`)
 let nameChoiceEl = document.querySelector(`#name-choice`)
-let characterFormEl = document.querySelector('#character-form');
+let characterFormEl = document.getElementById('character-form');
 let raiderUrl = `https://raider.io/api/v1/characters/profile?region=us`
 let characterNameEl = document.querySelector('.character-name')
 let realmEl = document.querySelector(`.realm`)
