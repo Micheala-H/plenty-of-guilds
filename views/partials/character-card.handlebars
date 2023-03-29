@@ -1,16 +1,18 @@
 <div class="card">
   <div class="card-header">
     <h3>{{ name }}</h3>
+    <img id="thumb-pic1" src="{{pic}}" alt="">
     <p>Realm: {{ realm }}</p>
   </div>
   <div class="card-body">
-    <p>Race: {{ character.race }}</p>
+    <p>Race: {{ race }}</p>
     <p>Spec: {{ spec }}</p>
     <p>Role: {{ role }}</p>
     <p>Gender: {{ gender }}</p>
     <p>Faction: {{ faction }}</p>
     <p>Points: {{ points }}</p>
     <p>Kills: {{ kills }}</p>
+      {{#if reviews}}
       {{#each reviews as |review|}}
       <div class="review">
         <h2>Review</h2>
@@ -18,11 +20,11 @@
         <p>Comment: {{ review.comment }}</p>
       </div>
       {{/each}}
-    {{#unless hasReviews}}
+    {{else}}
       <div class="review">
         <h1>Review</h2>
         <a href="/character/{{id}}">Click here to leave a review.</a>
       </div>
-  {{/unless}}
+    {{/if}}
   </div>
 </div>
