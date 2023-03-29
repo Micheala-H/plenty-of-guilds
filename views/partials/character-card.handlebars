@@ -4,24 +4,25 @@
     <p>Realm: {{ realm }}</p>
   </div>
   <div class="card-body">
-    <p>Race: {{ race }}</p>
+    <p>Race: {{ character.race }}</p>
     <p>Spec: {{ spec }}</p>
     <p>Role: {{ role }}</p>
     <p>Gender: {{ gender }}</p>
     <p>Faction: {{ faction }}</p>
     <p>Points: {{ points }}</p>
     <p>Kills: {{ kills }}</p>
-      {{#if review}}
+      {{#each reviews as |review|}}
       <div class="review">
         <h2>Review</h2>
         <p>Rating: {{ review.rating }}</p>
         <p>Comment: {{ review.comment }}</p>
       </div>
-    {{else}}
+      {{/each}}
+    {{#unless hasReviews}}
       <div class="review">
         <h1>Review</h2>
         <a href="/character/{{id}}">Click here to leave a review.</a>
       </div>
-    {{/if}}
+  {{/unless}}
   </div>
 </div>
