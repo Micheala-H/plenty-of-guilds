@@ -1,6 +1,6 @@
 let reviewButtonEl = document.querySelector('#save-review')
 let deleteCharacterEl = document.querySelector(`#delete-character-btn`)
-let deleteReviewEl = document.querySelector(`#delete-review-btn`)
+let deleteReviewEl = document.getElementById(`delete-review-btn`)
 
 const postReview = async (event) => {
     event.preventDefault();
@@ -24,7 +24,7 @@ const postReview = async (event) => {
       }
     }
   };
-  reviewCharacterEl.addEventListener('click', postReview);
+  reviewButtonEl.addEventListener('click', postReview);
 
   const deleteCharacter = async (event) => {
     if (event.target.hasAttribute('data-id')) {
@@ -44,23 +44,6 @@ const postReview = async (event) => {
 
   deleteCharacterEl.addEventListener('click', deleteCharacter)
 
-  const deleteCharacter = async (event) => {
-    if (event.target.hasAttribute('data-id')) {
-      const id = event.target.getAttribute('data-id');
-  
-      const response = await fetch(`/api/characters/${id}`, {
-        method: 'DELETE',
-      });
-  
-      if (response.ok) {
-        document.location.replace('/profile');
-      } else {
-        alert('Failed to delete project');
-      }
-    }
-  };
-
-  deleteButtonEl.addEventListener('click', deleteCharacter)
 
   const deleteReview = async (event) => {
     if (event.target.hasAttribute('data-id')) {
