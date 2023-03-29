@@ -4,25 +4,30 @@
     <p>Realm: {{ realm }}</p>
   </div>
   <div class="card-body">
-    <p>Race: {{ character.race }}</p>
+    <p>Race: {{ race }}</p>
     <p>Spec: {{ spec }}</p>
     <p>Role: {{ role }}</p>
     <p>Gender: {{ gender }}</p>
     <p>Faction: {{ faction }}</p>
     <p>Points: {{ points }}</p>
     <p>Kills: {{ kills }}</p>
+    <button id="delete-character-btn" data-id="{{id}}">Delete Character</button>
+      {{#if reviews}}
       {{#each reviews as |review|}}
       <div class="review">
         <h2>Review</h2>
         <p>Rating: {{ review.rating }}</p>
         <p>Comment: {{ review.comment }}</p>
+        <button id="delete-review-btn" data-id="{{id}}">Delete Review</button>
       </div>
       {{/each}}
-    {{#unless hasReviews}}
+    {{else}}
       <div class="review">
         <h1>Review</h2>
         <a href="/character/{{id}}">Click here to leave a review.</a>
       </div>
-  {{/unless}}
+    {{/if}}
   </div>
 </div>
+
+<button id="delete-character-btn">Delete Review</button>
