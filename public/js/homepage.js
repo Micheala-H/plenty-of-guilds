@@ -89,6 +89,7 @@ let sendCharacter = function (otherRealm, otherName) {
                 const achievementPoints = data.achievement_points
                 const honorableKills = data.honorable_kills
                 const realm = data.realm
+                const pic = data.thumbnail_url
                 const characterData = {
                     name: name,
                     realm: realm,
@@ -98,7 +99,8 @@ let sendCharacter = function (otherRealm, otherName) {
                     gender: gender,
                     faction: faction,
                     points: achievementPoints,
-                    kills: honorableKills
+                    kills: honorableKills,
+                    pic: pic
                 }
                 //console.log(JSON.stringify(characterData))
                     fetch('/api/characters', {

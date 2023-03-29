@@ -29,6 +29,10 @@ Character.init(
       type: DataTypes.STRING,
       allowNull: false
     },
+    pic: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
     spec: {
       type: DataTypes.STRING,
       allowNull: false
