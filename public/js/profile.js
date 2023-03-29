@@ -1,6 +1,6 @@
-let reviewButtonEl = document.querySelector('#save-review')
+//let reviewButtonEl = document.getElementById('#save-review')
 let deleteCharacterEl = document.querySelector(`#delete-character-btn`)
-let deleteReviewEl = document.getElementById(`delete-review-btn`)
+let deleteReviewEl = document.querySelector(`.delete-review-btn`)
 
 const postReview = async (event) => {
     event.preventDefault();
@@ -24,9 +24,11 @@ const postReview = async (event) => {
       }
     }
   };
-  reviewButtonEl.addEventListener('click', postReview);
+
+  //reviewButtonEl.addEventListener('click', postReview);
 
   const deleteCharacter = async (event) => {
+    console.log(`in character delete`);
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
   
@@ -46,6 +48,7 @@ const postReview = async (event) => {
 
 
   const deleteReview = async (event) => {
+    console.log(`in review delete`);
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
   
@@ -61,4 +64,7 @@ const postReview = async (event) => {
     }
   };
 
-  deleteReviewEl.addEventListener('click', deleteReview)
+  deleteReviewEl.addEventListener('click', deleteReview);
+  document
+  .querySelector('#save-review')
+  .addEventListener('click', postReview)
