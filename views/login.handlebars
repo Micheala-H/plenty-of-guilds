@@ -1,18 +1,18 @@
-<div class="row grid grid-cols-2 gap-4">
+<div class="row grid grid-cols-1 gap-4 md:grid-cols-2">
   <div class="col-span-1 px-4 border-4 bg-slate-600 p-2">
-    <h2>Login</h2>
+    <h2 class="text-center text-zinc-50 text-xl font-bold m-4">Login</h2>
 
     <form class="form login-form grid grid-rows-3 gap-4  mb-4">
-      <div class="form-group row-span-1 grid grid-cols-3 text-zinc-50">
-        <label for="email-login">email:</label>
-        <input class="form-input" type="text" id="email-login" />
+      <div class="form-group row-span-1 grid grid-cols-2 text-zinc-50">
+        <label for="email-login" class="ml-8">email:</label>
+        <input class="form-input text-slate-800 mr-4" type="text" id="email-login" />
       </div>
-      <div class="form-group">
-        <label for="password-login">password:</label>
-        <input class="form-input" type="password" id="password-login" />
+      <div class="form-group row-span-1 grid grid-cols-2 text-zinc-50">
+        <label for="password-login" class="ml-8">password:</label>
+        <input class="form-input text-slate-800 mr-4" type="password" id="password-login" />
       </div>
-      <div class="form-group">
-        <button class="" type="submit">login</button>
+      <div class="form-group ">
+        <button class="items-center font-bold text-xl text-zinc-50 bg-amber-600 rounded p-2 mx-20" type="submit">login</button>
       </div>
     </form>
   </div>
