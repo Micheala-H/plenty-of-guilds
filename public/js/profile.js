@@ -24,7 +24,25 @@ const postReview = async (event) => {
       }
     }
   };
-  reviewButtonEl.addEventListener('click', postReview);
+  reviewCharacterEl.addEventListener('click', postReview);
+
+  const deleteCharacter = async (event) => {
+    if (event.target.hasAttribute('data-id')) {
+      const id = event.target.getAttribute('data-id');
+  
+      const response = await fetch(`/api/characters/${id}`, {
+        method: 'DELETE',
+      });
+  
+      if (response.ok) {
+        document.location.replace('/profile');
+      } else {
+        alert('Failed to delete project');
+      }
+    }
+  };
+
+  deleteCharacterEl.addEventListener('click', deleteCharacter)
 
   const deleteCharacter = async (event) => {
     if (event.target.hasAttribute('data-id')) {
@@ -60,4 +78,4 @@ const postReview = async (event) => {
     }
   };
 
-  deleteButtonEl.addEventListener('click', deleteReview)
+  deleteReviewEl.addEventListener('click', deleteReview)
