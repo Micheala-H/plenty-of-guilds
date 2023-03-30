@@ -19,13 +19,13 @@
         <h2>Review</h2>
         <p>Rating: {{ review.rating }}</p>
         <p>Comment: {{ review.comment }}</p>
-        <button class="delete-review-btn" data-id="{{id}}">Delete Review</button>
+        <button class="delete-review-btn" data-id="{{id}}">Delete Comment</button>
       </div>
       {{/each}}
     {{else}}
       <div class="review">
-        <h1>Review</h2>
-        <a href="/character/{{id}}">Click here to leave a review.</a>
+        <h1>Character notes:</h2>
+        <a href="/character/{{id}}">Click here to leave a note/comment.</a>
       </div>
     {{/if}}
   </div>
