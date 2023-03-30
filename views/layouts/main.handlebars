@@ -22,10 +22,10 @@
       <nav class="flex px-4 items-center">
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
-        <button><a href="/">Home</a></button>
-        <button><a href="/profile">Dashoard</a></button>
+        <a href="/profile" class="font-bold text-xl text-zinc-50 p-1 underline">Profile</a> |
+        <button class="no-button font-bold text-xl text-zinc-50 p-1 underline hover:text-amber-700" id="logout">Logout</button>
+        <button><a href="/" class="font-bold text-xl text-zinc-50 p-1 underline">Home</a></button>
+        <button><a href="/profile" class="font-bold text-xl text-zinc-50 p-1 underline">Dashoard</a></button>
         {{else}}
         <div class="">
           <a href="/login" class="font-bold text-xl text-zinc-50 bg-amber-600 p-2 rounded">Login</a>

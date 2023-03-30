@@ -9,11 +9,11 @@
       
      {{!-- <div class="form-group"> --}}
       <div class="form-group row-span-1 grid grid-cols-3 text-zinc-50">
-        <label for="password-login font-xl">Realm:</label>
+        <label for="password-login"><span class="text-xl font-bold">Realm:</span></label>
         <input class="form-input col-span-2 text-slate-800 font-bold text-xl text-center" type="text" id="realm-choice" />
       </div>
       <div class="form-group row-span-1 grid grid-cols-3 text-zinc-50">
-        <label for="name-signup font-xl">Name:</label>
+        <label for="name-signup text-xl"><span class="text-xl font-bold">Name:</span></label>
         <input class="form-input col-span-2 text-slate-800 font-bold text-xl text-center" type="text" id="name-choice" />
       </div>
       <div class="form-group row-span-1 text-center">
@@ -38,7 +38,7 @@
    <div class="grid-span-2 text-center">
       {{#if logged_in}}
       <div class="save-character">
-        <button id="save-character" type="submit">SAVE</button>
+        <button id="save-character" type="submit" class="font-bold text-xl text-zinc-50 bg-amber-600 p-2 rounded">SAVE</button>
       </div>
       {{else}}
       <div>
