@@ -19,13 +19,13 @@
         <span role="img" aria-label="money"></span>
         <a href="/" class="text-5xl font-bold text-amber-600 center">Plenty Of Guilds</a>
       </h1>
-      <nav class="flex px-4 items-center">
+      <nav class="flex px-4 items-center grid grid-rows-4 md:grid-rows-1">
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
-        <button><a href="/">Home</a></button>
-        <button><a href="/profile">Dashoard</a></button>
+        <button><a href="/" class="font-bold text-xl text-zinc-50 p-1 underline">Home</a></button>
+        <a href="/profile" class="font-bold text-xl text-zinc-50 p-1 underline">Profile</a>
+        <button class="no-button font-bold text-xl text-zinc-50 p-1 underline hover:text-amber-700" id="logout">Logout</button>
+        
         {{else}}
         <div class="">
           <a href="/login" class="font-bold text-xl text-zinc-50 bg-amber-600 p-2 rounded">Login</a>

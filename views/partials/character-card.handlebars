@@ -1,17 +1,17 @@
-<div class="card col-span-1 px-4 border-4 bg-slate-600">
+<div class="card col-span-1 px-4 border-4 bg-slate-600 ">
   <div class="card-header">
-    <h3>{{ name }}</h3>
+    <h3 class="font-xl text-zinc-50 font-bold">{{ name }}</h3>
     <img id="thumb-pic4" src="{{pic}}" alt="">
-    <p>Realm: {{ realm }}</p>
+    <p class="font-bold text-zinc-50">Realm:  <span class="font-normal">{{ realm }}</span></p>
   </div>
   <div class="card-body">
-    <p>Race: {{ race }}</p>
-    <p>Spec: {{ spec }}</p>
-    <p>Role: {{ role }}</p>
-    <p>Gender: {{ gender }}</p>
-    <p>Faction: {{ faction }}</p>
-    <p>Points: {{ points }}</p>
-    <p>Kills: {{ kills }}</p>
+    <p class="font-bold text-zinc-50">Race: <span class="font-normal">{{ race }}</span></p>
+    <p class="font-bold text-zinc-50">Spec: <span class="font-normal"> {{ spec }}</span></p>
+    <p class="font-bold text-zinc-50">Role: <span class="font-normal">  {{ role }}</span></p>
+    <p class="font-bold text-zinc-50">Gender: <span class="font-normal"> {{ gender }}</span></p>
+    <p class="font-bold text-zinc-50">Faction: <span class="font-normal"> {{ faction }}</span></p>
+    <p class="font-bold text-zinc-50">Points: <span class="font-normal"> {{ points }}</span></p>
+    <p class="font-bold text-zinc-50">Kills: <span class="font-normal"> {{ kills }}</span></p>
     <button id="delete-character-btn" data-id="{{id}}">Delete Character</button>
       {{#if reviews}}
       {{#each reviews as |review|}}
@@ -19,7 +19,7 @@
         <h2>Review</h2>
         <p>Rating: {{ review.rating }}</p>
         <p>Comment: {{ review.comment }}</p>
-        <button class="delete-review-btn" data-id="{{id}}">Delete Comment</button>
+        <button class="font-bold text-xl text-zinc-50 bg-amber-600 p-2 rounded delete-review-btn" data-id="{{id}}">Delete Comment</button>
       </div>
       {{/each}}
     {{else}}
