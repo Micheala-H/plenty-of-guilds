@@ -26,18 +26,14 @@ const deleteCharacter = async (event) => {
   
       if (response.ok) {
         document.location.replace('/profile');
-      } else {
-        alert('Failed to delete project');
-      }
-    }
+      }}
   };
 
-  document
-  .querySelector('#delete-character-btn')
-  .addEventListener('click', deleteCharacter);
-  document
-  .querySelector('.delete-review-btn')
-  .addEventListener('click', deleteReview);
+  const deleteCharacterButtonEl = document.querySelectorAll('#delete-character-btn')
+  deleteCharacterButtonEl.forEach(button => button.addEventListener('click', deleteCharacter));
+  
+  const deleteReviewButtonEl = document.querySelectorAll('.delete-review-btn')
+  deleteReviewButtonEl.forEach(button => button.addEventListener('click', deleteReview));
   
 
   //let deleteCharacterEl = document.querySelector(`#delete-character-btn`)
