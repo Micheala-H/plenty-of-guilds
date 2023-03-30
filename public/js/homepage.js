@@ -113,6 +113,7 @@ let sendCharacter = function (otherRealm, otherName) {
                     .then(function(response) {
                         if (response.ok) {
                             console.log("Working")
+                            window.alert("Character saved to profile!")
                         } else {
                             console.log("not working")
                         }
