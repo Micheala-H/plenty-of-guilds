@@ -1,28 +1,4 @@
-const postReview = async (event) => {
-  console.log('in post');
-    event.preventDefault();
-    const character_id = window.location.pathname.split('/').pop();
-    const rating = document.querySelector('#character-rating').value.trim();
-    const comment = document.querySelector('#character-review').value.trim();
-  
-    if (rating && comment) {
-      const response = await fetch(`/api/reviews`, {
-        method: 'POST',
-        body: JSON.stringify({ character_id, rating, comment }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-  
-      if (response.ok) {
-        document.location.replace('/profile');
-      } else {
-        alert('Failed to create review.');
-      }
-    }
-  };
-
-  const deleteCharacter = async (event) => {
+const deleteCharacter = async (event) => {
     console.log(`in character delete`);
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
@@ -62,9 +38,7 @@ const postReview = async (event) => {
   document
   .querySelector('.delete-review-btn')
   .addEventListener('click', deleteReview);
-  document
-  .querySelector('.new-review-form')
-  .addEventListener('submit', postReview);
+  
 
   //let deleteCharacterEl = document.querySelector(`#delete-character-btn`)
 //let deleteReviewEl = document.querySelector(`.delete-review-btn`)
