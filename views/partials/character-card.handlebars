@@ -12,20 +12,20 @@
     <p class="font-bold text-zinc-50">Faction: <span class="font-normal"> {{ faction }}</span></p>
     <p class="font-bold text-zinc-50">Points: <span class="font-normal"> {{ points }}</span></p>
     <p class="font-bold text-zinc-50">Kills: <span class="font-normal"> {{ kills }}</span></p>
-    <button id="delete-character-btn" data-id="{{id}}">Delete Character</button>
+    <button class="font-bold text-xl text-zinc-50 bg-amber-600 p-1 rounded delete-review-btn mt-2 mb-2" id="delete-character-btn" data-id="{{id}}">Delete Character</button>
       {{#if reviews}}
       {{#each reviews as |review|}}
       <div class="review">
-        <h2>Review</h2>
-        <p>Rating: {{ review.rating }}</p>
-        <p>Comment: {{ review.comment }}</p>
-        <button class="font-bold text-xl text-zinc-50 bg-amber-600 p-2 rounded delete-review-btn" data-id="{{id}}">Delete Comment</button>
+        <h2 class="font-bold text-zinc-50">Review</h2>
+        <p class="font-bold text-zinc-50">Rating: <span class="font-normal">{{ review.rating }}</span></p>
+        <p class="font-bold text-zinc-50">Comment: <span class="font-normal">{{ review.comment }}</span></p>
+        <button class="font-bold text-xl text-zinc-50 bg-amber-600 p-1 rounded delete-review-btn mt-2 mb-2" data-id="{{id}}">Delete Comment</button>
       </div>
       {{/each}}
     {{else}}
-      <div class="review">
-        <h1>Character notes:</h2>
-        <a href="/character/{{id}}">Click here to leave a note/comment.</a>
+      <div class="review font-bold text-zinc-50">
+        <h1>Character notes:</h1>
+        <a href="/character/{{id}}" class="font-bold text-zinc-50 bg-amber-600 p-1 rounded delete-review-btn  mb-">Add Comment</a>
       </div>
     {{/if}}
   </div>
